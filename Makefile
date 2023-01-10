@@ -1,23 +1,18 @@
 NAME = libftprintf.a
-
 SRC = ft_printf.c \
 complement.c 
 
-OBJ = $(SRC:.c=.o)
-
-CC =gcc
-
-RM =rm -f
-
+CC = gcc
+RM = rm -f
 CFLAGS = -Wall -Werror -Wextra -I.
 
 all:$(NAME)
 
-$(NAME): $(OBJ)
-			ar rc $(NAME)	$(OBJ)
+$(NAME): $(SRC:=.o)
+			ar rc $(NAME)	$(SRC:=.o)
 
 clean:
-	$(RM)	$(OBJ)
+	$(RM)	$(SRC:=.o)
 
 fclean: clean
 	$(RM)	$(NAME)
