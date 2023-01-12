@@ -3,46 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ricosta- <ricosta-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mair <mair@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:50:52 by ricosta-          #+#    #+#             */
-/*   Updated: 2023/01/09 17:36:06 by ricosta-         ###   ########.fr       */
+/*   Updated: 2023/01/12 22:09:24 by mair             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-int	ft_print(const char *str, va_list args, len)
+int	ft_print_arg(const char *str, int i, va_list args)
 {
-	if (str == 'c' || str == 's' || str == 'p')
-		ft_putstr(str);
-	if (str == 'p')
-	{
-		write(1, 'oX', 2);
-		*str++;
-		ft_putstr(&str);
-	}
-		ft_putnbr()
-	return (len);
+	if (str[i + 1] == '%')
+		return (ft_putchar(str[i + 1]));
+		
+	else if (str[i + 1] == 'c')
+		return (ft_putchar(va_arg(args, int)));
+		
+	else if (str[i + 1] == 's')
+		return (ft_putstr(va_arg(args, char *))); //tratar caso seja nulo
+		
+	else if ((str[i +1] == 'd') || (str[i + 1] == 'i'))
+		return (ft_putnbr(va_arg(args, int)));
+	
+	else if (str[i + 1] == 'u')
+		return () // idk
 }
 
 int	ft_printf(const char *str, ...)
 {
 	va_list args;
 	int 	len;
+	int		i;
 	
 	va_start(args, str);
-	while (*str)
+	while (str[i])
 	{
-		if (str == '%')
+		if ((str[i] == '%') && (ft_strchr("cspdiuxX%", str[i + 1])))
 		{
-			*str++;
-			if (str == '%')
-				write(1, '%', 1);
-			result += ft_print(str, args, len);
+			len += ft_print_arg(str, i, args);
+			i++;
 		}
-		*str++; //sim?
-	}
+		else
+			len += ft_putchar(str[i]);
+	}  
 	va_end(args);
 	return (len);
 }
