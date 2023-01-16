@@ -6,13 +6,13 @@
 /*   By: ricosta- <ricosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 18:45:24 by ricosta-          #+#    #+#             */
-/*   Updated: 2023/01/16 18:50:50 by ricosta-         ###   ########.fr       */
+/*   Updated: 2023/01/16 19:34:14 by ricosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr_hex(long long n, int base, char c)
+int	ft_putnbr_hex(unsigned long n, unsigned long base, char c)
 {
 	int		len;
 	char	*low;
@@ -21,11 +21,6 @@ int	ft_putnbr_hex(long long n, int base, char c)
 	len = 0;
 	low = HEXLOW;
 	up = HEXUP;
-	if (n < 0)
-	{
-		len += ft_putchar('-');
-		n *= -1;
-	}
 	if (n >= base)
 		len += ft_putnbr_hex((n / base), base, c);
 	if (c == 'x')
@@ -35,14 +30,14 @@ int	ft_putnbr_hex(long long n, int base, char c)
 	return (len);
 }
 
-int	ft_putptr(unsigned long long ptr)
+int	ft_putptr(unsigned long ptr)
 {
 	int	len;
 
 	len = 0;
 	if (ptr == 0)
 		len += ft_putstr("(nil)");
-	else
+	else 
 	{
 		len += ft_putstr("0x");
 		len += ft_putnbr_hex(ptr, 16, 'x');

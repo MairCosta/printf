@@ -6,7 +6,7 @@
 /*   By: ricosta- <ricosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 17:30:38 by ricosta-          #+#    #+#             */
-/*   Updated: 2023/01/16 18:44:47 by ricosta-         ###   ########.fr       */
+/*   Updated: 2023/01/16 19:35:01 by ricosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ int		ft_putstr(char *str);
 char	*ft_strchr(const char *str, int c);
 int		ft_putnbr(int n);
 int		ft_putnbr_u(unsigned int n);
-int		ft_putnbr_hex(long long n, int base, char c);
-int		ft_putnbr_hex(long long n, int base, char c);
-int		ft_putptr(unsigned long long ptr);
+int		ft_putnbr_hex(unsigned long n, unsigned long base, char c);
+int		ft_putptr(unsigned long ptr);
 
 #endif
