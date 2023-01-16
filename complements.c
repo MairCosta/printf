@@ -6,7 +6,7 @@
 /*   By: ricosta- <ricosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 22:09:44 by mair              #+#    #+#             */
-/*   Updated: 2023/01/14 20:15:13 by ricosta-         ###   ########.fr       */
+/*   Updated: 2023/01/16 18:35:27 by ricosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,18 @@ char	*ft_strchr(const char *str, int c)
 
 int	ft_putnbr(int n)
 {
+	int	len;
+
+	len = 0;
 	if (n == INT_MIN)
 	{
-		ft_putchar('-');
-		ft_putchar('2');
+		len += ft_putchar('-');
+		len += ft_putchar('2');
 		ft_putnbr(147483648);
 	}
 	else if (n < 0)
 	{
-		ft_putchar('-');
+		len += ft_putchar('-');
 		ft_putnbr(-n);
 	}
 	else if (n > 9)
@@ -61,12 +64,13 @@ int	ft_putnbr(int n)
 		ft_putnbr(n % 10);
 	}
 	else
-		ft_putchar(n + 48);
+		len += ft_putchar(n + 48);
+	return (len);
 }
 
 int	ft_putnbr_u(unsigned int n)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (n > 9)
@@ -76,43 +80,5 @@ int	ft_putnbr_u(unsigned int n)
 	}
 	else
 		len += ft_putchar(n + 48);
-	return (len);
-}
-
-int ft_putnbr_hex(long long n, int base, char c)
-{
-	int 	len;
-	char	*low;
-	char	*up;
-
-	len = 0;
-	low = hexlow;
-	up = hexup;
-	if (n < 0)
-	{
-		len += ft_putchar('-');
-		n *= -1;
-	}
-	if (n >= base)
-		len += ft_putnbr_hex((n / base), base, c);
-	if (c == 'x')
-		len += ft_putchar(hexlow[n % base]);
-	else if (c == 'X')
-		len += ft_putchar(hexup[n % base]);
-	return (len);
-	}
-
-int ft_putptr(unsigned long long ptr)
-{
-	int len;
-
-	len = 0;
-	if (ptr == 0)
-		len += ft_putstr("(nil)");
-	else
-	{
-		len += ft_putstr("0x");
-		len += ft_putnbr_hex(ptr, 16, 'x');
-	}
 	return (len);
 }

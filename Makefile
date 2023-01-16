@@ -1,7 +1,8 @@
 NAME = libftprintf.a
 
 SRC = ft_printf.c \
-		complements.c 
+		complements.c \
+		complements_hex.c
 
 CC = gcc
 

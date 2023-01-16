@@ -6,16 +6,15 @@
 /*   By: ricosta- <ricosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 17:30:38 by ricosta-          #+#    #+#             */
-/*   Updated: 2023/01/14 20:04:56 by ricosta-         ###   ########.fr       */
+/*   Updated: 2023/01/16 18:44:47 by ricosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# define dec "0123456789"
-# define hexup "0123456789ABCDEF"
-# define hexlow "0123456789abcdef"
+# define HEXUP "0123456789ABCDEF"
+# define HEXLOW "0123456789abcdef"
 
 # include <stdio.h>
 # include <unistd.h>
@@ -27,9 +26,11 @@ int		ft_printf(const char *str, ...);
 int		ft_print_arg(const char *str, int i, va_list args);
 int		ft_putchar(char c);
 int		ft_putstr(char *str);
-int		ft_putnbr(int n);
 char	*ft_strchr(const char *str, int c);
+int		ft_putnbr(int n);
+int		ft_putnbr_u(unsigned int n);
+int		ft_putnbr_hex(long long n, int base, char c);
+int		ft_putnbr_hex(long long n, int base, char c);
+int		ft_putptr(unsigned long long ptr);
 
 #endif
-
-//ACRESCENTAR 'd' na funcao hexa
