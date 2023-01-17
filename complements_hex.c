@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   complements_hex.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ricosta- <ricosta-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mair <mair@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 18:45:24 by ricosta-          #+#    #+#             */
-/*   Updated: 2023/01/16 19:34:14 by ricosta-         ###   ########.fr       */
+/*   Updated: 2023/01/17 12:53:36 by mair             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_putptr(unsigned long ptr)
 	len = 0;
 	if (ptr == 0)
 		len += ft_putstr("(nil)");
-	else 
+	else
 	{
 		len += ft_putstr("0x");
 		len += ft_putnbr_hex(ptr, 16, 'x');

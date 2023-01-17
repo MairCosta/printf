@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   complements.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ricosta- <ricosta-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mair <mair@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 22:09:44 by mair              #+#    #+#             */
-/*   Updated: 2023/01/16 19:12:38 by ricosta-         ###   ########.fr       */
+/*   Updated: 2023/01/17 13:00:51 by mair             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	ft_putnbr(int n)
 	else if (n < 0)
 	{
 		len += ft_putchar('-');
-		ft_putnbr(-n);
+		n *= -1;
 	}
 	else if (n > 9)
 	{

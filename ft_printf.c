@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ricosta- <ricosta-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mair <mair@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:50:52 by ricosta-          #+#    #+#             */
-/*   Updated: 2023/01/16 19:34:24 by ricosta-         ###   ########.fr       */
+/*   Updated: 2023/01/17 12:54:09 by mair             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ int	ft_print_arg(const char *str, int i, va_list args)
 	else if (str[i + 1] == 'u')
 		return (ft_putnbr_u(va_arg(args, unsigned int)));
 	else if (str[i + 1] == 'x')
-		return (ft_putnbr_hex((unsigned long)va_arg(args, unsigned int), 16, 'x'));
+		return \
+		(ft_putnbr_hex((unsigned long)va_arg(args, unsigned int), 16, 'x'));
 	else if (str[i + 1] == 'X')
-		return (ft_putnbr_hex((unsigned long)va_arg(args, unsigned int), 16, 'X'));
+		return \
+		(ft_putnbr_hex((unsigned long)va_arg(args, unsigned int), 16, 'X'));
 	else if (str[i + 1] == 'p')
 		return (ft_putptr(va_arg(args, unsigned long)));
 	return (0);
