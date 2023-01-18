@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mair <mair@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ricosta- <ricosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:50:52 by ricosta-          #+#    #+#             */
-/*   Updated: 2023/01/17 12:54:09 by mair             ###   ########.fr       */
+/*   Updated: 2023/01/17 17:41:00 by ricosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int	ft_printf(const char *str, ...)
 	int		len;
 	int		i;
 
+	i = 0;
+	len = 0;
 	va_start(args, str);
 	while (str[i])
 	{
@@ -56,3 +58,15 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (len);
 }
+
+/*int main (void)
+{
+	int	a, b;
+
+	a = ft_printf("%d\n", -1);
+	b = printf("%d\n", -1);
+	printf("a : %d \n b : %d\n", a, b);
+	a = ft_printf("%d\n", 1898);
+	b = printf("%d\n", 1898);
+	printf("a : %d \n b : %d\n", a, b);
+}*/

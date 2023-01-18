@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   complements.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mair <mair@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ricosta- <ricosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 22:09:44 by mair              #+#    #+#             */
-/*   Updated: 2023/01/17 13:07:44 by mair             ###   ########.fr       */
+/*   Updated: 2023/01/17 17:43:25 by ricosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,25 +47,20 @@ int	ft_putnbr(int n)
 	int	len;
 
 	len = 0;
+	if (n < 0 && n != INT_MIN)
+	{
+		len += ft_putchar('-');
+		n = -n;
+	}
 	if (n == INT_MIN)
-	{
-		len += ft_putchar('-');
-		len += ft_putchar('2');
-		ft_putnbr(147483648);
-	}
-	else if (n < 0)
-	{
-		len += ft_putchar('-');
-		n *= -1;
-		ft_putnbr(n);
-	}
-	else if (n > 9)
-	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
-	}
+		len += ft_putstr("-2147483648");
+	else if (n <= 9)
+		len += ft_putchar(n + '0');
 	else
-		len += ft_putchar(n + 48);
+	{
+			len += ft_putnbr(n / 10);
+			len += ft_putchar((n % 10) + 48);
+	}
 	return (len);
 }
 
@@ -80,6 +75,6 @@ int	ft_putnbr_u(unsigned int n)
 		len += ft_putnbr_u(n % 10);
 	}
 	else
-		len += ft_putchar(n + 48);
+		len += ft_putchar(n + '0');
 	return (len);
 }
